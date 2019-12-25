@@ -66,8 +66,8 @@ public class MenuPanel extends JPanel {
 		this.add(score);
 		score.setLocation(30, gameMode.getHeight()+gameMode.getY()+60);
 		
-		difficulty.link(easy, medium, hard,start,timed,survival,this);
-		gameMode.link(easy, medium, hard,start,timed,survival,this);
+		difficulty.link(easy, medium, hard,timed,survival);
+		gameMode.link(easy, medium, hard,timed,survival);
 	}
 	
 	//--------------------------------------------------------------------- Creating Side button For Difficulties
@@ -86,21 +86,32 @@ public class MenuPanel extends JPanel {
 		}
 	
 	private void createGameModes() {
-		survival = new SurvivalButton();
+		survival = new SurvivalButton(start);
 		this.add(survival);
 		survival.setLocation(gameMode.getX()+gameMode.getWidth()+60, gameMode.getY()-survival.getHeight()+20);
 		
-		timed = new TimedButton();
+		timed = new TimedButton(start);
 		this.add(timed);
 		timed.setLocation(survival.getX(), survival.getY()+survival.getHeight()+20);
 	}
 	//---------------------------------------------------------------------
 	
 	public void paint(Graphics g){
-		   super.paint(g);
-		   g.drawLine(0, 0, 100, 100);
-		   g.clearRect(0, 0, 1000,1000);
-		   super.paint(g);
+		g.clearRect(0, 0, 1000,1000);
+		super.paint(g);	
+		if(easy.isVisible()){
+		   g.drawLine(difficulty.getX()+difficulty.getWidth(), difficulty.getY()+difficulty.getHeight()/2,easy.getX(), easy.getY()+easy.getHeight()/2); // easy
+		   g.drawLine(difficulty.getX()+difficulty.getWidth(), difficulty.getY()+difficulty.getHeight()/2,medium.getX(), medium.getY()+medium.getHeight()/2); // medium
+		   g.drawLine(difficulty.getX()+difficulty.getWidth(), difficulty.getY()+difficulty.getHeight()/2,hard.getX(), hard.getY()+hard.getHeight()/2); // hard
+		}
+		else if(timed.isVisible()) {
+			g.drawLine(gameMode.getX()+gameMode.getWidth(), gameMode.getY()+gameMode.getHeight()/2,survival.getX(), survival.getY()+survival.getHeight()/2); // survival
+			g.drawLine(gameMode.getX()+gameMode.getWidth(), gameMode.getY()+gameMode.getHeight()/2,timed.getX(), timed.getY()+timed.getHeight()/2); // timed
+		}
+		else {
+			g.clearRect(0, 0, 1000,1000);
+			super.paint(g);
+		}
 		}
 	
 

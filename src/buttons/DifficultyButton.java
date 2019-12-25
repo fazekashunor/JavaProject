@@ -7,8 +7,6 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
-import panels.MenuPanel;
-
 public class DifficultyButton extends BaseButton{
 
 	/**
@@ -20,12 +18,8 @@ public class DifficultyButton extends BaseButton{
 	private MediumButton medium;
 	private EasyButton easy;
 	
-	private StartButton start;
-	
 	private TimedButton timed;
 	private SurvivalButton survival;
-	
-	private MenuPanel panel;
 
 	public DifficultyButton() {
 		super();
@@ -58,15 +52,13 @@ public class DifficultyButton extends BaseButton{
 		});
 	}
 	
-	public void link(EasyButton easy,MediumButton medium,HardButton hard,StartButton start,
-					TimedButton timed, SurvivalButton survival,MenuPanel panel) {
+	public void link(EasyButton easy,MediumButton medium,HardButton hard,
+					TimedButton timed, SurvivalButton survival) {
 		this.easy=easy;
 		this.medium=medium;
 		this.hard=hard;
-		this.start=start;
 		this.timed=timed;
 		this.survival=survival;
-		this.panel=panel;
 	}
 	
 	private void switchShow(){

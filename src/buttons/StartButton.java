@@ -21,6 +21,8 @@ public class StartButton  extends BaseButton{
 	private int frequency;
 	
 	private String mode;
+	
+	private Color backg;
 
 	public StartButton() {
 		super();
@@ -42,25 +44,36 @@ public class StartButton  extends BaseButton{
 		}
 		this.setFont(customFont);
 		this.setForeground(Color.ORANGE);
+		this.setBackground(Color.CYAN);
+		backg = Color.CYAN;
+		
 		this.setText("Start");
 		
 		this.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	backg = getBackground();
 		    	setBackground(Color.GRAY);
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
-				setBackground(Color.DARK_GRAY);
+				setBackground(backg);
 		    }
 		    
 		    public void mousePressed(MouseEvent e) {
 		    	setBackground(Color.GRAY);
-		    	//new GameMenu(intervall,frequency,velocity);
-		    	
+		    	if(mode == "Survival") {
+		    		new GameMenu(intervall,frequency,velocity);
+		    	}
+		    	else {
+		    		
+		    	}
+		    }
+		    
+		    public void mouseReleased(MouseEvent e) {
+		    	setBackground(backg);
 		    }
 		});
 	}
-	
 	public void setIntervall(int intervall) {
 		this.intervall = intervall;
 	}

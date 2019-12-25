@@ -26,7 +26,7 @@ public class MiddleTriangle extends Triangle{
 	
 	public MiddleTriangle(){
 		super();	
-		//this.setBorderPainted(true);
+		this.setBorderPainted(true);
 		try {
 			img = ImageIO.read(new File("MiddleTri/MiddleUp.png"));
 			state = 0;

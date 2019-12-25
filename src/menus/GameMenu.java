@@ -31,7 +31,7 @@ public class GameMenu extends JFrame {
 	    this.setName("TRIANGLE");
 	    this.setTitle("TRIANGLE");
 		this.setBounds(100, 0, 707, 730);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setVisible(true);
 		
 		this.createGame();
