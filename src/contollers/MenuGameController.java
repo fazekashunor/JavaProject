@@ -19,8 +19,13 @@ public class MenuGameController extends Thread{
 	private Random r;
 	private JPanel panel;
 	
-	public MenuGameController(MenuPanel panel) {
+	private int gears;
+	private int difference;
+	
+	public MenuGameController(MenuPanel panel,int gears,int difference) {
 		r = new Random();
+		this.difference=difference;
+		this.gears=gears;
 		this.panel = panel;
 	}
 	
@@ -32,13 +37,13 @@ public class MenuGameController extends Thread{
 				new UpMenuController(panel,this).start();
 				break;
 			case 1:
-				new RightMenuController(panel,this).start();
+				new RightMenuController(panel,this,gears,difference).start();
 				break;
 			case 2:
-				new DownMenuController(panel,this).start();
+				new DownMenuController(panel,this,gears,difference).start();
 				break;
 			case 3:
-				new LeftMenuController(panel,this).start();
+				new LeftMenuController(panel,this,gears,difference).start();
 				break;
 			}
 			try {

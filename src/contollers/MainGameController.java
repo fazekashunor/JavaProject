@@ -20,6 +20,11 @@ public class MainGameController {
 	private GamePanel panel;
 	private Random r;
 	
+	
+	private int gears;
+	private int frequency;
+	private int difference;
+	
 	//Getters und Setters
 	public Boolean getStop() {
 		return stop;
@@ -30,33 +35,34 @@ public class MainGameController {
 	}
 	//-------------------------------------------------
 
-	public MainGameController(MiddleTriangle middle,GamePanel panel) {
+	public MainGameController(MiddleTriangle middle,GamePanel panel,int gears,int frequency,int difference) {
 		this.middle = middle;
 		this.panel = panel;
 		stop = false;
 		r = new Random();
+		this.gears=gears;
+		this.frequency=frequency;
+		this.difference=difference;
 	}
 	
 	public void run() {
 		while(!stop){
-			
 			switch((r.nextInt(4))) {
 			case 0:
-				new UpGameController(panel,middle,this).start();
+				new UpGameController(panel,middle,this,gears,difference).start();
 				break;
 			case 1:
-				new RightGameController(panel,middle,this).start();
+				new RightGameController(panel,middle,this,gears,difference).start();
 				break;
 			case 2:
-				new DownGameController(panel,middle,this).start();
+				new DownGameController(panel,middle,this,gears,difference).start();
 				break;
 			case 3:
-				new LeftGameController(panel,middle,this).start();
+				new LeftGameController(panel,middle,this,gears,difference).start();
 				break;
 			}
 			try {
-				//Thread.sleep(630); // >= 100
-				Thread.sleep(630); // >= 100
+				Thread.sleep(frequency);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

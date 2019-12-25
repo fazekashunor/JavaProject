@@ -21,7 +21,7 @@ public class GamePanel extends JPanel {
 	private int pheight;
 	private int pwidth;
 
-	public GamePanel() {
+	public GamePanel() {		
 		this.setBackground(Color.WHITE);
 		this.setLayout(null);
 		pheight = this.getSize().height;

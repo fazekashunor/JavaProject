@@ -8,9 +8,9 @@ import triAngles.setted.SettedMovingTriangleToRight;
 
 public class LeftGameController extends Controller {
 	
-	public LeftGameController(GamePanel panel,MiddleTriangle middle,MainGameController mainC) {
+	public LeftGameController(GamePanel panel,MiddleTriangle middle,MainGameController mainC,int gears,int difference) {
 		super(panel,middle,mainC);
-		triangle = new SettedMovingTriangleToRight(panel);
+		triangle = new SettedMovingTriangleToRight(panel,gears,difference);
 	}
 	
 	@Override

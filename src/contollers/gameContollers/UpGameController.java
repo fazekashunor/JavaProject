@@ -8,9 +8,9 @@ import triAngles.setted.SettedMovingTriangleToDown;
 
 public class UpGameController extends Controller {
 	
-	public UpGameController(GamePanel panel,MiddleTriangle middle,MainGameController mainC) {
+	public UpGameController(GamePanel panel,MiddleTriangle middle,MainGameController mainC,int gears,int difference) {
 		super(panel,middle,mainC);
-		triangle = new SettedMovingTriangleToDown(panel);
+		triangle = new SettedMovingTriangleToDown(panel,gears,difference);
 	}
 	
 	@Override
