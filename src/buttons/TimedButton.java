@@ -7,17 +7,17 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
-public class ScoreButton  extends BaseButton{
-
+public class TimedButton extends BaseSideButton{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public ScoreButton() {
+	public TimedButton() {
 		super();
+		this.setText("Timed");
 		try {
-			customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(20f);
+			customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(13f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			//register the font
 			ge.registerFont(customFont);
@@ -26,11 +26,11 @@ public class ScoreButton  extends BaseButton{
 			e1.printStackTrace();
 		}
 		this.setFont(customFont);
-		this.setText("Score");
+		this.setForeground(Color.magenta);
 		
 		this.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	setBackground(Color.GRAY);
+		    	setBackground(Color.magenta);
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -38,7 +38,7 @@ public class ScoreButton  extends BaseButton{
 		    }
 		    
 		    public void mousePressed(MouseEvent e) {
-		    	setBackground(Color.GRAY);
+		    	setBackground(Color.magenta);
 		    }
 		});
 	}
