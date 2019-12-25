@@ -3,17 +3,16 @@ package contollers.menuContollers;
 import javax.swing.JPanel;
 
 import contollers.Controller;
-import contollers.MainGameController;
-import contollers.MenuGameController;
+import contollers.GameController;
 import triAngles.MiddleTriangle;
 import triAngles.MovingTriangle;
 import triAngles.random.RandomMovingTriangleToDown;
 
 public class UpMenuController extends Controller {
 	
-	public UpMenuController(JPanel panel,MenuGameController menuGameController) {
-		super(panel,null,menuGameController);
-		triangle = new RandomMovingTriangleToDown(panel);
+	public UpMenuController(JPanel panel,MiddleTriangle middle,GameController menuGameController,int intervall,int difference) {
+		super(panel,middle,menuGameController,intervall);
+		triangle = new RandomMovingTriangleToDown(panel,difference);
 	}
 	
 	@Override

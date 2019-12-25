@@ -14,13 +14,13 @@ public class GameMenu extends JFrame {
 	
 	private GamePanel panel;
 	
-	private int gears;
+	private int intervall;
 	private int frequency;
 	private int difference;
 	
-	public GameMenu(int gears,int frequency, int difference) {	  
+	public GameMenu(int intervall,int frequency, int difference) {	  
 		
-		this.gears=gears;
+		this.intervall=intervall;
 		this.frequency=frequency;
 		this.difference=difference;
 		
@@ -39,7 +39,7 @@ public class GameMenu extends JFrame {
 	}
 	
 	public void createGame() {
-		new MainGameController(panel.getKozepGomb(),panel,gears,frequency,difference).run();
+		new MainGameController(panel.getKozepGomb(),panel,intervall,frequency,difference).start();
 	}
 }
 	

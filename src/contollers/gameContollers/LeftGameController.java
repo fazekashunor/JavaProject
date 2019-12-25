@@ -1,16 +1,17 @@
 package contollers.gameContollers;
 
+import javax.swing.JPanel;
+
 import contollers.Controller;
 import contollers.MainGameController;
-import panels.GamePanel;
 import triAngles.MiddleTriangle;
 import triAngles.setted.SettedMovingTriangleToRight;
 
 public class LeftGameController extends Controller {
 	
-	public LeftGameController(GamePanel panel,MiddleTriangle middle,MainGameController mainC,int gears,int difference) {
-		super(panel,middle,mainC);
-		triangle = new SettedMovingTriangleToRight(panel,gears,difference);
+	public LeftGameController(JPanel panel,MiddleTriangle middle,MainGameController mainC,int intervall,int difference) {
+		super(panel,middle,mainC,intervall);
+		triangle = new SettedMovingTriangleToRight(panel,difference);
 	}
 	
 	@Override

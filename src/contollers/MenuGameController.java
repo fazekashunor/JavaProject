@@ -2,30 +2,21 @@ package contollers;
 
 import java.util.Random;
 
-import javax.swing.JPanel;
-
-import contollers.gameContollers.DownGameController;
-import contollers.gameContollers.LeftGameController;
-import contollers.gameContollers.RightGameController;
-import contollers.gameContollers.UpGameController;
 import contollers.menuContollers.DownMenuController;
 import contollers.menuContollers.LeftMenuController;
 import contollers.menuContollers.RightMenuController;
 import contollers.menuContollers.UpMenuController;
 import panels.MenuPanel;
 
-public class MenuGameController extends Thread{
+public class MenuGameController extends GameController{
 	
-	private Random r;
-	private JPanel panel;
-	
-	private int gears;
-	private int difference;
-	
-	public MenuGameController(MenuPanel panel,int gears,int difference) {
+	public MenuGameController(MenuPanel panel,int intervall,int frequency,int difference) {
+		super();
+		stop = false;
 		r = new Random();
 		this.difference=difference;
-		this.gears=gears;
+		this.intervall=intervall;
+		this.frequency=frequency;
 		this.panel = panel;
 	}
 	
@@ -34,23 +25,24 @@ public class MenuGameController extends Thread{
 		while(true){	
 			switch((r.nextInt(4))) {
 			case 0:
-				new UpMenuController(panel,this).start();
+				new UpMenuController(panel,null,this,intervall,difference).start();
 				break;
 			case 1:
-				new RightMenuController(panel,this,gears,difference).start();
+				new RightMenuController(panel,null,this,intervall,difference).start();
 				break;
 			case 2:
-				new DownMenuController(panel,this,gears,difference).start();
+				new DownMenuController(panel,null,this,intervall,difference).start();
 				break;
 			case 3:
-				new LeftMenuController(panel,this,gears,difference).start();
+				new LeftMenuController(panel,null,this,intervall,difference).start();
 				break;
 			}
 			try {
-				Thread.sleep(630); // >= 100
+				Thread.sleep(this.frequency); // >= 100
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+	}
 }
