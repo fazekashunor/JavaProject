@@ -7,28 +7,18 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
-import panels.MenuPanel;
-
-public class DifficultyButton extends BaseButton{
+public class MediumButton extends BaseSideButton{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private HardButton hard;
-	private MediumButton medium;
-	private EasyButton easy;
-	
 	private StartButton start;
 	
-	private TimedButton timed;
-	private SurvivalButton survival;
-	
-	private MenuPanel panel;
-
-	public DifficultyButton() {
+	public MediumButton(StartButton start) {
 		super();
+		this.start=start;
 		try {
 			customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(11f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -39,11 +29,13 @@ public class DifficultyButton extends BaseButton{
 			e1.printStackTrace();
 		}
 		this.setFont(customFont);
-		this.setText("Difficulty");
+		this.setForeground(Color.ORANGE);
+		this.setText("Medium");
 		
 		this.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
-		    	setBackground(Color.GRAY);
+		    	setBackground(Color.ORANGE);
+		    	
 		    }
 
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -51,32 +43,19 @@ public class DifficultyButton extends BaseButton{
 		    }
 		    
 		    public void mousePressed(MouseEvent e) {
-		    	setBackground(Color.GRAY);
-		    	switchShow();
-		    	disableGameModes();
+		    	setBackground(Color.ORANGE);
+		    	getStartButton().setForeground(Color.ORANGE);
+		    	//-- Setting Difficulty
+		    	getStartButton().setIntervall(20);
+		    	getStartButton().setFrequency(630);
+		    	getStartButton().setVelocity(3);
 		    }
 		});
 	}
 	
-	public void link(EasyButton easy,MediumButton medium,HardButton hard,StartButton start,
-					TimedButton timed, SurvivalButton survival,MenuPanel panel) {
-		this.easy=easy;
-		this.medium=medium;
-		this.hard=hard;
-		this.start=start;
-		this.timed=timed;
-		this.survival=survival;
-		this.panel=panel;
-	}
 	
-	private void switchShow(){
-		easy.setVisible(!easy.isVisible());
-		medium.setVisible(!medium.isVisible());
-		hard.setVisible(!hard.isVisible());
+	private StartButton getStartButton() {
+		return this.start;
 	}
-	
-	private void disableGameModes() {
-		survival.setVisible(false);
-		timed.setVisible(false);
-	}
+
 }
