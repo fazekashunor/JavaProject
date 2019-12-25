@@ -32,7 +32,7 @@ public class MainMenu extends JFrame {
 	    this.setResizable(false);
 	    this.setName("TRIANGLE");
 	    this.setTitle("TRIANGLE");
-		this.setBounds(100, 0, 707, 730);
+		this.setBounds(100, 0, 507, 630);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
 		
