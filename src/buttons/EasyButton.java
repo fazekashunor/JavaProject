@@ -45,6 +45,10 @@ public class EasyButton extends BaseSideButton{
 		    public void mousePressed(MouseEvent e) {
 		    	setBackground(Color.green);
 		    	getStartButton().setForeground(Color.green);
+		    	//-- Setting Difficulty
+		    	getStartButton().setIntervall(20);
+		    	getStartButton().setFrequency(1020);
+		    	getStartButton().setVelocity(2);
 		    }
 		});
 		

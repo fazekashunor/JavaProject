@@ -44,6 +44,10 @@ public class HardButton extends BaseSideButton{
 		    public void mousePressed(MouseEvent e) {
 		    	setBackground(Color.RED);
 		    	getStartButton().setForeground(Color.RED);
+		    	//-- Setting Difficulty
+		    	getStartButton().setIntervall(15);
+		    	getStartButton().setFrequency(340);
+		    	getStartButton().setVelocity(4);
 		    }
 		});
 	}

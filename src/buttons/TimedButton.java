@@ -13,8 +13,11 @@ public class TimedButton extends BaseSideButton{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public TimedButton() {
+	private StartButton start;
+	
+	public TimedButton(StartButton start) {
 		super();
+		this.start=start;
 		this.setText("Timed");
 		try {
 			customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(13f);
@@ -39,8 +42,13 @@ public class TimedButton extends BaseSideButton{
 		    
 		    public void mousePressed(MouseEvent e) {
 		    	setBackground(Color.magenta);
+		    	getStartButton().setBackground(Color.magenta);
+		    	getStartButton().setMode("Timed");
 		    }
 		});
+	}
+	private StartButton getStartButton() {
+		return this.start;
 	}
 
 }

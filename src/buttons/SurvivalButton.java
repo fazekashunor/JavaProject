@@ -14,8 +14,11 @@ public class SurvivalButton extends BaseSideButton{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public SurvivalButton() {
+	private StartButton start;
+	
+	public SurvivalButton(StartButton start) {
 		super();
+		this.start=start;
 		this.setText("Survival");
 		try {
 			customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(8f);
@@ -40,9 +43,14 @@ public class SurvivalButton extends BaseSideButton{
 		    
 		    public void mousePressed(MouseEvent e) {
 		    	setBackground(Color.CYAN);
+		    	getStartButton().setBackground(Color.CYAN);
+		    	getStartButton().setMode("Survival");
 		    }
 		});
 		
+	}
+	private StartButton getStartButton() {
+		return this.start;
 	}
 
 }
