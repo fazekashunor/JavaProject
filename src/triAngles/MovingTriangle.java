@@ -12,12 +12,12 @@ public class MovingTriangle extends Triangle {
 	protected int velocity;
 	protected int state;
 	
-	public MovingTriangle(int gears,int difference) {
+	public MovingTriangle(int difference) {
 		super();
 		this.setFocusable(false);
 		r = new Random();
 		state = -1;
-		velocity = (r.nextInt(gears)+1)*difference;
+		velocity = (r.nextInt(2)+1)*difference;
 	}
 	
 	public void move() {

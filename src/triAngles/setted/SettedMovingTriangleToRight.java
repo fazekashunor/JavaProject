@@ -1,6 +1,7 @@
 package triAngles.setted;
 
-import panels.GamePanel;
+import javax.swing.JPanel;
+
 import triAngles.MovingTriangleToRight;
 
 public class SettedMovingTriangleToRight extends MovingTriangleToRight {
@@ -11,8 +12,8 @@ public class SettedMovingTriangleToRight extends MovingTriangleToRight {
 	private static final long serialVersionUID = 1L;
 	
 	
-	public SettedMovingTriangleToRight(GamePanel panel,int gears, int difference) {
-		super(gears,difference);
+	public SettedMovingTriangleToRight(JPanel panel, int difference) {
+		super(difference);
 		panel.add(this);
 		this.setLocation(-this.getWidth(),panel.getHeight()/2-this.getHeight()/2);
 	}

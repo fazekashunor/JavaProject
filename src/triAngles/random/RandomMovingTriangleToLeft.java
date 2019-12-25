@@ -11,8 +11,8 @@ public class RandomMovingTriangleToLeft extends MovingTriangleToLeft {
 	private static final long serialVersionUID = 1L;
 	
 	
-	public RandomMovingTriangleToLeft(JPanel panel) {
-		super();
+	public RandomMovingTriangleToLeft(JPanel panel, int difference) {
+		super(difference);
 		panel.add(this);
 		this.setLocation(panel.getWidth(),r.nextInt(panel.getHeight()-this.getHeight()));
 	}

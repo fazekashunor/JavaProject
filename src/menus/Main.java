@@ -3,7 +3,8 @@ package menus;
 public class Main {
 
 	public static void main(String[] args) {
-		// 630 2 3 - Medium-ish
-		new GameMenu(2,630,3);
+		// 630 20 3 - Medium-ish
+		//new GameMenu(20,630,3);
+		new MainMenu(10,600,5);
 	}
 }

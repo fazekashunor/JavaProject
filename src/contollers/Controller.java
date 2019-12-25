@@ -2,7 +2,7 @@ package contollers;
 
 import javax.swing.JPanel;
 
-import contollers.MainGameController;
+import contollers.GameController;
 import triAngles.MiddleTriangle;
 import triAngles.MovingTriangle;
 
@@ -11,16 +11,16 @@ public class Controller extends Thread {
 	protected Boolean collided;
 	protected MiddleTriangle middle;
 	protected JPanel panel;
-	protected MainGameController mainC;
+	protected GameController mainC;
 	protected MovingTriangle triangle;
 	
-	// volatilation
-	// syncronized
-	// Thread syncronization
-	public Controller(JPanel panel,MiddleTriangle middle,MainGameController mainC) {
+	protected int intervall;
+	
+	public Controller(JPanel panel,MiddleTriangle middle,GameController mainC,int intervall) {
 		this.panel = panel;
 		this.middle = middle;
 		this.mainC = mainC;
+		this.intervall=intervall;
 		collided = false;
 	}
 	
@@ -29,7 +29,7 @@ public class Controller extends Thread {
 	{
 		while (!collided && !mainC.getStop()) {
 			try {
-				Thread.sleep(20);
+				Thread.sleep(intervall);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

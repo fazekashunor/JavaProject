@@ -1,11 +1,10 @@
 package menus;
 
-import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import contollers.MenuGameController;
+import panels.MenuPanel;
 
-import triAngles.Triangle;
 
 public class MainMenu extends JFrame {
 
@@ -15,21 +14,34 @@ public class MainMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	
-	private JPanel kozep;
+	private MenuPanel panel;
 	
-	public MainMenu() {
-		this.setLayout(new BorderLayout());
+	private int intervall;
+	private int frequency;
+	private int difference;
+	
+	public MainMenu(int intervall,int frequency, int difference) {
 		
-		//Kozepso gomb letrehozasa;
-		kozep = new JPanel();
+		this.intervall=intervall;
+		this.frequency=frequency;
+		this.difference=difference;
 		
-	    //kozep.setLayout(null);
-	    //Felso haromszogek
+		this.panel = new MenuPanel();  
+		this.add(panel);
 		
-		this.setBounds(100, 0, 1000, 1000);
+	    this.setResizable(false);
+	    this.setName("TRIANGLE");
+	    this.setTitle("TRIANGLE");
+		this.setBounds(100, 0, 707, 730);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
 		this.setVisible(true);
+		
+		this.createBackGround();
+		
+	}
+	
+	public void createBackGround() {
+		new MenuGameController(panel,intervall,frequency,difference).start();
 	}
 	
 

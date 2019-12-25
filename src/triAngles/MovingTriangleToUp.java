@@ -15,8 +15,8 @@ public class MovingTriangleToUp extends MovingTriangle {
 	private static final long serialVersionUID = 1L;
 	
 	
-	public MovingTriangleToUp(int gears, int difference) {
-		super(gears,difference);
+	public MovingTriangleToUp(int difference) {
+		super(difference);
 		state = 2;
 		try {
 			img = ImageIO.read(new File("UpWard/"+(r.nextInt(10)+1)+".png"));

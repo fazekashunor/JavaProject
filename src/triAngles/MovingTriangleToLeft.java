@@ -16,8 +16,8 @@ public class MovingTriangleToLeft extends MovingTriangle {
 	private static final long serialVersionUID = 1L;
 	
 	
-	public MovingTriangleToLeft(int gears, int difference) {
-		super(gears,difference);
+	public MovingTriangleToLeft(int difference) {
+		super(difference);
 		state = 1;
 		try {
 			img = ImageIO.read(new File("TowardsLeft/"+(r.nextInt(10)+1)+".png"));

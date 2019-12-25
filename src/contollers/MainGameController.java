@@ -13,52 +13,35 @@ import triAngles.MiddleTriangle;
 //		*hozzon letre uj 3-szogeket random;
 // 		*ha valamelyik rosszul utkozott allitsa le az osszes thread-et;
 // CHAR LAYOUT
-public class MainGameController {
+public class MainGameController extends GameController{
 	
-	private Boolean stop;
-	private MiddleTriangle middle;
-	private GamePanel panel;
-	private Random r;
-	
-	
-	private int gears;
-	private int frequency;
-	private int difference;
-	
-	//Getters und Setters
-	public Boolean getStop() {
-		return stop;
-	}
 
-	public void setStop(Boolean stop) {
-		this.stop = stop;
-	}
-	//-------------------------------------------------
-
-	public MainGameController(MiddleTriangle middle,GamePanel panel,int gears,int frequency,int difference) {
+	public MainGameController(MiddleTriangle middle,GamePanel panel,int intervall,int frequency,int difference) {
+		super();
 		this.middle = middle;
 		this.panel = panel;
 		stop = false;
 		r = new Random();
-		this.gears=gears;
+		this.intervall=intervall;
 		this.frequency=frequency;
 		this.difference=difference;
 	}
 	
+	@Override
 	public void run() {
 		while(!stop){
 			switch((r.nextInt(4))) {
 			case 0:
-				new UpGameController(panel,middle,this,gears,difference).start();
+				new UpGameController(panel,middle,this,intervall,difference).start();
 				break;
 			case 1:
-				new RightGameController(panel,middle,this,gears,difference).start();
+				new RightGameController(panel,middle,this,intervall,difference).start();
 				break;
 			case 2:
-				new DownGameController(panel,middle,this,gears,difference).start();
+				new DownGameController(panel,middle,this,intervall,difference).start();
 				break;
 			case 3:
-				new LeftGameController(panel,middle,this,gears,difference).start();
+				new LeftGameController(panel,middle,this,intervall,difference).start();
 				break;
 			}
 			try {
