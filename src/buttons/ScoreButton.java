@@ -1,12 +1,30 @@
 package buttons;
 
-import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.io.IOException;
 
-public class ScoreButton  extends JButton{
+public class ScoreButton  extends BaseButton{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	public ScoreButton() {
+		super();
+		try {
+			customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(20f);
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			//register the font
+			ge.registerFont(customFont);
+		} catch (FontFormatException | IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		this.setFont(customFont);
+		this.setText("Score");
+	}
 
 }
