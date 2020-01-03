@@ -7,7 +7,8 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
-import menus.GameMenu;
+import menus.ComboGameMenu;
+import menus.SurvivalGameMenu;
 
 public class StartButton  extends BaseButton{
 
@@ -62,10 +63,10 @@ public class StartButton  extends BaseButton{
 		    public void mousePressed(MouseEvent e) {
 		    	setBackground(Color.GRAY);
 		    	if(mode == "Survival") {
-		    		new GameMenu(intervall,frequency,velocity);
+		    		new SurvivalGameMenu(intervall,frequency,velocity);
 		    	}
 		    	else {
-		    		
+		    		new ComboGameMenu(intervall,frequency,velocity);
 		    	}
 		    }
 		    

@@ -11,8 +11,7 @@ import panels.MenuPanel;
 public class MenuGameController extends GameController{
 	
 	public MenuGameController(MenuPanel panel,int intervall,int frequency,int difference) {
-		super();
-		stop = false;
+		super(panel,intervall,frequency,difference);
 		r = new Random();
 		this.difference=difference;
 		this.intervall=intervall;
