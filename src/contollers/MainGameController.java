@@ -6,29 +6,36 @@ import contollers.gameContollers.DownGameController;
 import contollers.gameContollers.LeftGameController;
 import contollers.gameContollers.RightGameController;
 import contollers.gameContollers.UpGameController;
+import labels.TimerLabel;
+import menus.BaseFrame;
+import menus.PopoutEnding;
 import panels.GamePanel;
+import timers.TimerForward;
 import triAngles.MiddleTriangle;
 
 // Main Controller szerepe hogy:
 //		*hozzon letre uj 3-szogeket random;
 // 		*ha valamelyik rosszul utkozott allitsa le az osszes thread-et;
-// CHAR LAYOUT
 public class MainGameController extends GameController{
 	
-
-	public MainGameController(MiddleTriangle middle,GamePanel panel,int intervall,int frequency,int difference) {
-		super();
+	private TimerForward timer;
+	private TimerLabel timerLabel;
+	
+	
+	public MainGameController(MiddleTriangle middle,GamePanel panel,int intervall,int frequency,int difference,BaseFrame frame,TimerLabel timerLabel) {
+		super(panel,intervall,frequency,difference);
 		this.middle = middle;
-		this.panel = panel;
-		stop = false;
-		r = new Random();
-		this.intervall=intervall;
-		this.frequency=frequency;
-		this.difference=difference;
+		r = new Random();	
+		this.frame = frame;
+		
+		this.timerLabel=timerLabel;
+		timer = new TimerForward(timerLabel);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
+		timer.start();
 		while(!stop){
 			switch((r.nextInt(4))) {
 			case 0:
@@ -51,5 +58,7 @@ public class MainGameController extends GameController{
 				e.printStackTrace();
 			}
 		}
+		timer.stop();
+		new PopoutEnding(frame);
 	}
 }

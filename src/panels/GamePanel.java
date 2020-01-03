@@ -16,10 +16,10 @@ public class GamePanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private MiddleTriangle kozepGomb;
+	protected MiddleTriangle kozepGomb;
 
-	private int pheight;
-	private int pwidth;
+	protected int pheight;
+	protected int pwidth;
 
 	public GamePanel() {		
 		this.setBackground(Color.WHITE);
@@ -41,11 +41,11 @@ public class GamePanel extends JPanel {
 		});
 	}
 
-	private int SizeH() {
+	protected int SizeH() {
 		return this.getSize().height;
 	}
 
-	private int SizeW() {
+	protected int SizeW() {
 		return this.getSize().width;
 	}
 	
