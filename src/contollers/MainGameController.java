@@ -59,6 +59,6 @@ public class MainGameController extends GameController{
 			}
 		}
 		timer.stop();
-		new PopoutEnding(frame);
+		new PopoutEnding(frame,timerLabel.getText(),difference);
 	}
 }

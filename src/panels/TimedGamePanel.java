@@ -39,8 +39,8 @@ public class TimedGamePanel extends GamePanel {
 				pwidth = SizeW();
 				kozepGomb.setLocation((pwidth / 2) - kozepGomb.getWidth() / 2,
 						(pheight / 2) - kozepGomb.getHeight() / 2);
-				pointsLabel.setLocation(pwidth-pointsLabel.getWidth(),0);
-				timerLabel.setLocation(0,0);
+				pointsLabel.setLocation(pwidth-pointsLabel.getWidth(),20);
+				timerLabel.setLocation(20,20);
 				comboCounterLabel.setLocation(pwidth-comboCounterLabel.getWidth(),pheight-comboCounterLabel.getHeight());
 				
 			}

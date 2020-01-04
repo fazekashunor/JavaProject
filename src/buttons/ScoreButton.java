@@ -7,6 +7,8 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
+import menus.HighScoresMenu;
+
 public class ScoreButton  extends BaseButton{
 
 	/**
@@ -39,6 +41,7 @@ public class ScoreButton  extends BaseButton{
 		    
 		    public void mousePressed(MouseEvent e) {
 		    	setBackground(Color.GRAY);
+		    	new HighScoresMenu();
 		    }
 		});
 	}
