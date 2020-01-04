@@ -6,7 +6,8 @@ import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 
-import panels.EndingPanel;
+import panels.EndingPanelHard;
+import panels.EndingPanelRest;
 
 public class PopoutEnding extends JFrame{
 
@@ -15,13 +16,17 @@ public class PopoutEnding extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private EndingPanel panel;
+	private EndingPanelHard panelHard;
+	private EndingPanelRest panelRest;
+	
+	String score;
 	
 	@SuppressWarnings("deprecation")
-	public PopoutEnding(BaseFrame frame){
+	public PopoutEnding(BaseFrame frame,String score,int velocity){
 		frame.disable();
-		this.panel = new EndingPanel(this,frame);  
-		this.add(panel);
+		this.score = score;
+		
+		decideWichPanelToOpen(frame,velocity);
 		
 	    this.setResizable(false);
 	    this.setName("END_OF_THE_LIME");
@@ -37,11 +42,19 @@ public class PopoutEnding extends JFrame{
 		        dispose();
 		        frame.dispose();
 		    }
-		});
-		
-		
-		
+		});	
 		this.setVisible(true);
+	}
+	
+	private void decideWichPanelToOpen(BaseFrame frame,int velocity) {
+		if(velocity==4) {
+			this.panelHard = new EndingPanelHard(this,frame,score);  
+			this.add(panelHard);
+		}
+		else {
+			this.panelRest = new EndingPanelRest(this,frame);  
+			this.add(panelRest);
+		}
 	}
 	
 	

@@ -70,7 +70,7 @@ public class TimedGameController extends GameController{
 			}
 		}
 		timer.stop();
-		new PopoutEnding(frame);
+		new PopoutEnding(frame,pointCounterLabel.getText(),difference);
 	}
 	
 	public Boolean getStop() {

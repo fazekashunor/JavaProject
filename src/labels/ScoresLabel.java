@@ -6,14 +6,18 @@ import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.IOException;
 
-public class ComboCounterLabel extends BaseLabel{
+import javax.swing.SwingConstants;
+
+import distinctClasses.IntegerStringPairs;
+
+public class ScoresLabel extends BaseLabel{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public ComboCounterLabel() {
+	public ScoresLabel(IntegerStringPairs text,int place) {
 		super();
 		try {
 			customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(20f);
@@ -24,8 +28,14 @@ public class ComboCounterLabel extends BaseLabel{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		this.setSize(200, 100);
+		this.setHorizontalAlignment(SwingConstants.CENTER);
+		this.setVerticalAlignment(SwingConstants.CENTER);
+		this.setText("<html><div style='text-align: center;'>"+place+"#"+"<br>"+text.getName()+"<br>"+text.getScore()+"</div></html>");
 		this.setFont(customFont);
-		this.setText("1X");
-		this.setForeground(Color.GREEN);
+		this.setOpaque(true);
+		this.setBackground(Color.DARK_GRAY);
+		this.setForeground(Color.CYAN);
 	}
+	
 }

@@ -1,21 +1,27 @@
-package labels;
+package textField;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.io.File;
 import java.io.IOException;
 
-public class PointCounterLabel extends BaseLabel{
+import javax.swing.JTextField;
+
+public class NameTextField extends JTextField{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public PointCounterLabel() {
-		super();
+	private Font customFont;
+	private File is;
+	
+	public NameTextField() {
+		is = new File("Fonts/PressStart2P.ttf");
 		try {
-			customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(15f);
+			customFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(20f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			//register the font
 			ge.registerFont(customFont);
@@ -24,6 +30,9 @@ public class PointCounterLabel extends BaseLabel{
 			e1.printStackTrace();
 		}
 		this.setFont(customFont);
-		this.setText("0");
+		this.setSize(250,50);
+		this.setAlignmentY(CENTER);
+		this.setAlignmentX(CENTER);
 	}
+
 }
